@@ -22,10 +22,8 @@ $(document).ready(function() {
 			}
 
 			if ($forminputs.eq(i).attr('id') == "age" && forminput < 21) {
-				hasError = true
+				hasError = true;
 				$forminputs.eq(i).addClass("hasError");
-			} else {
-				$forminputs.eq(i).removeClass("hasError");				
 			}
 		}
 
@@ -36,8 +34,15 @@ $(document).ready(function() {
 		} else {
 			$('#errorMessageBox').hide();
 			$('#successMessageBox').fadeIn();
+			resetForm($forminputs);
 			return true;
 		}
 	});
+
+	function resetForm($forminputs) {
+		for(i = 0; i < $forminputs.length; i++) {
+			$forminputs.eq(i).val("");
+		}
+	}
 
 });
